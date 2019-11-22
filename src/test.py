@@ -134,6 +134,8 @@ def p_expression_funx(t):
         t[0] = math.cos(t[3])
     elif t[1] == 'SIN':
         t[0] = math.sin(t[3])
+    elif t[1] == 'TAN':
+        t[0] = math.tan(t[3])
 
 
 
@@ -169,13 +171,6 @@ while True:
 ROT IS PI/4
 FOR T FROM 0 TO 100 STEP 1
 DRAW (0,T)'''
-
-
-
-
-
-
-
 
 
 
