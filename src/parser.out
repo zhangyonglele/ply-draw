@@ -1,0 +1,1136 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COLOR
+    COMMENT
+    ERRTOKEN
+    ID
+    NONTOKEN
+    SEMICO
+    SIZE
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> T
+Rule 2     statement -> expression
+Rule 3     statement -> QUIT
+Rule 4     statement -> ORIGIN IS LBRACKET expression COMMA expression RBRACKET
+Rule 5     statement -> SCALE IS LBRACKET expression COMMA expression RBRACKET
+Rule 6     statement -> ROT IS expression
+Rule 7     statement -> FOR T FROM expression TO expression STEP expression
+Rule 8     statement -> DRAW LBRACKET expression COMMA expression RBRACKET
+Rule 9     expression -> PI
+Rule 10    expression -> CONSTNUMBER
+Rule 11    expression -> T
+Rule 12    expression -> LBRACKET expression RBRACKET
+Rule 13    expression -> expression PLUS expression
+Rule 14    expression -> expression MINUS expression
+Rule 15    expression -> expression MUL expression
+Rule 16    expression -> expression DIV expression
+Rule 17    expression -> MINUS expression
+Rule 18    expression -> expression POWER expression
+Rule 19    expression -> FUNC LBRACKET expression RBRACKET
+
+Terminals, with rules where they appear
+
+COLOR                : 
+COMMA                : 4 5 8
+COMMENT              : 
+CONSTNUMBER          : 10
+DIV                  : 16
+DRAW                 : 8
+ERRTOKEN             : 
+FOR                  : 7
+FROM                 : 7
+FUNC                 : 19
+ID                   : 
+IS                   : 4 5 6
+LBRACKET             : 4 5 8 12 19
+MINUS                : 14 17
+MUL                  : 15
+NONTOKEN             : 
+ORIGIN               : 4
+PI                   : 9
+PLUS                 : 13
+POWER                : 18
+QUIT                 : 3
+RBRACKET             : 4 5 8 12 19
+ROT                  : 6
+SCALE                : 5
+SEMICO               : 
+SIZE                 : 
+STEP                 : 7
+T                    : 1 7 11
+TO                   : 7
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 2 4 4 5 5 6 7 7 7 8 8 12 13 13 14 14 15 15 16 16 17 18 18 19
+statement            : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . T
+    (2) statement -> . expression
+    (3) statement -> . QUIT
+    (4) statement -> . ORIGIN IS LBRACKET expression COMMA expression RBRACKET
+    (5) statement -> . SCALE IS LBRACKET expression COMMA expression RBRACKET
+    (6) statement -> . ROT IS expression
+    (7) statement -> . FOR T FROM expression TO expression STEP expression
+    (8) statement -> . DRAW LBRACKET expression COMMA expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    T               shift and go to state 2
+    QUIT            shift and go to state 4
+    ORIGIN          shift and go to state 5
+    SCALE           shift and go to state 7
+    ROT             shift and go to state 8
+    FOR             shift and go to state 9
+    DRAW            shift and go to state 10
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> T .
+    (11) expression -> T .
+
+  ! reduce/reduce conflict for $end resolved using rule 1 (statement -> T .)
+    $end            reduce using rule 1 (statement -> T .)
+    PLUS            reduce using rule 11 (expression -> T .)
+    MINUS           reduce using rule 11 (expression -> T .)
+    MUL             reduce using rule 11 (expression -> T .)
+    DIV             reduce using rule 11 (expression -> T .)
+    POWER           reduce using rule 11 (expression -> T .)
+
+  ! $end            [ reduce using rule 11 (expression -> T .) ]
+
+
+state 3
+
+    (2) statement -> expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    $end            reduce using rule 2 (statement -> expression .)
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 4
+
+    (3) statement -> QUIT .
+
+    $end            reduce using rule 3 (statement -> QUIT .)
+
+
+state 5
+
+    (4) statement -> ORIGIN . IS LBRACKET expression COMMA expression RBRACKET
+
+    IS              shift and go to state 20
+
+
+state 6
+
+    (12) expression -> LBRACKET . expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 21
+
+state 7
+
+    (5) statement -> SCALE . IS LBRACKET expression COMMA expression RBRACKET
+
+    IS              shift and go to state 23
+
+
+state 8
+
+    (6) statement -> ROT . IS expression
+
+    IS              shift and go to state 24
+
+
+state 9
+
+    (7) statement -> FOR . T FROM expression TO expression STEP expression
+
+    T               shift and go to state 25
+
+
+state 10
+
+    (8) statement -> DRAW . LBRACKET expression COMMA expression RBRACKET
+
+    LBRACKET        shift and go to state 26
+
+
+state 11
+
+    (9) expression -> PI .
+
+    PLUS            reduce using rule 9 (expression -> PI .)
+    MINUS           reduce using rule 9 (expression -> PI .)
+    MUL             reduce using rule 9 (expression -> PI .)
+    DIV             reduce using rule 9 (expression -> PI .)
+    POWER           reduce using rule 9 (expression -> PI .)
+    $end            reduce using rule 9 (expression -> PI .)
+    RBRACKET        reduce using rule 9 (expression -> PI .)
+    COMMA           reduce using rule 9 (expression -> PI .)
+    TO              reduce using rule 9 (expression -> PI .)
+    STEP            reduce using rule 9 (expression -> PI .)
+
+
+state 12
+
+    (10) expression -> CONSTNUMBER .
+
+    PLUS            reduce using rule 10 (expression -> CONSTNUMBER .)
+    MINUS           reduce using rule 10 (expression -> CONSTNUMBER .)
+    MUL             reduce using rule 10 (expression -> CONSTNUMBER .)
+    DIV             reduce using rule 10 (expression -> CONSTNUMBER .)
+    POWER           reduce using rule 10 (expression -> CONSTNUMBER .)
+    $end            reduce using rule 10 (expression -> CONSTNUMBER .)
+    RBRACKET        reduce using rule 10 (expression -> CONSTNUMBER .)
+    COMMA           reduce using rule 10 (expression -> CONSTNUMBER .)
+    TO              reduce using rule 10 (expression -> CONSTNUMBER .)
+    STEP            reduce using rule 10 (expression -> CONSTNUMBER .)
+
+
+state 13
+
+    (17) expression -> MINUS . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 27
+
+state 14
+
+    (19) expression -> FUNC . LBRACKET expression RBRACKET
+
+    LBRACKET        shift and go to state 28
+
+
+state 15
+
+    (13) expression -> expression PLUS . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 29
+
+state 16
+
+    (14) expression -> expression MINUS . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 30
+
+state 17
+
+    (15) expression -> expression MUL . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 31
+
+state 18
+
+    (16) expression -> expression DIV . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 32
+
+state 19
+
+    (18) expression -> expression POWER . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 33
+
+state 20
+
+    (4) statement -> ORIGIN IS . LBRACKET expression COMMA expression RBRACKET
+
+    LBRACKET        shift and go to state 34
+
+
+state 21
+
+    (12) expression -> LBRACKET expression . RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    RBRACKET        shift and go to state 35
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 22
+
+    (11) expression -> T .
+
+    RBRACKET        reduce using rule 11 (expression -> T .)
+    PLUS            reduce using rule 11 (expression -> T .)
+    MINUS           reduce using rule 11 (expression -> T .)
+    MUL             reduce using rule 11 (expression -> T .)
+    DIV             reduce using rule 11 (expression -> T .)
+    POWER           reduce using rule 11 (expression -> T .)
+    $end            reduce using rule 11 (expression -> T .)
+    COMMA           reduce using rule 11 (expression -> T .)
+    TO              reduce using rule 11 (expression -> T .)
+    STEP            reduce using rule 11 (expression -> T .)
+
+
+state 23
+
+    (5) statement -> SCALE IS . LBRACKET expression COMMA expression RBRACKET
+
+    LBRACKET        shift and go to state 36
+
+
+state 24
+
+    (6) statement -> ROT IS . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 37
+
+state 25
+
+    (7) statement -> FOR T . FROM expression TO expression STEP expression
+
+    FROM            shift and go to state 38
+
+
+state 26
+
+    (8) statement -> DRAW LBRACKET . expression COMMA expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 39
+
+state 27
+
+    (17) expression -> MINUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 17 (expression -> MINUS expression .)
+    MINUS           reduce using rule 17 (expression -> MINUS expression .)
+    MUL             reduce using rule 17 (expression -> MINUS expression .)
+    DIV             reduce using rule 17 (expression -> MINUS expression .)
+    POWER           reduce using rule 17 (expression -> MINUS expression .)
+    $end            reduce using rule 17 (expression -> MINUS expression .)
+    RBRACKET        reduce using rule 17 (expression -> MINUS expression .)
+    COMMA           reduce using rule 17 (expression -> MINUS expression .)
+    TO              reduce using rule 17 (expression -> MINUS expression .)
+    STEP            reduce using rule 17 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! MUL             [ shift and go to state 17 ]
+  ! DIV             [ shift and go to state 18 ]
+  ! POWER           [ shift and go to state 19 ]
+
+
+state 28
+
+    (19) expression -> FUNC LBRACKET . expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 40
+
+state 29
+
+    (13) expression -> expression PLUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 13 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 13 (expression -> expression PLUS expression .)
+    POWER           reduce using rule 13 (expression -> expression PLUS expression .)
+    $end            reduce using rule 13 (expression -> expression PLUS expression .)
+    RBRACKET        reduce using rule 13 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 13 (expression -> expression PLUS expression .)
+    TO              reduce using rule 13 (expression -> expression PLUS expression .)
+    STEP            reduce using rule 13 (expression -> expression PLUS expression .)
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+
+  ! MUL             [ reduce using rule 13 (expression -> expression PLUS expression .) ]
+  ! DIV             [ reduce using rule 13 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! POWER           [ shift and go to state 19 ]
+
+
+state 30
+
+    (14) expression -> expression MINUS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 14 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 14 (expression -> expression MINUS expression .)
+    POWER           reduce using rule 14 (expression -> expression MINUS expression .)
+    $end            reduce using rule 14 (expression -> expression MINUS expression .)
+    RBRACKET        reduce using rule 14 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 14 (expression -> expression MINUS expression .)
+    TO              reduce using rule 14 (expression -> expression MINUS expression .)
+    STEP            reduce using rule 14 (expression -> expression MINUS expression .)
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+
+  ! MUL             [ reduce using rule 14 (expression -> expression MINUS expression .) ]
+  ! DIV             [ reduce using rule 14 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! POWER           [ shift and go to state 19 ]
+
+
+state 31
+
+    (15) expression -> expression MUL expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 15 (expression -> expression MUL expression .)
+    MINUS           reduce using rule 15 (expression -> expression MUL expression .)
+    MUL             reduce using rule 15 (expression -> expression MUL expression .)
+    DIV             reduce using rule 15 (expression -> expression MUL expression .)
+    POWER           reduce using rule 15 (expression -> expression MUL expression .)
+    $end            reduce using rule 15 (expression -> expression MUL expression .)
+    RBRACKET        reduce using rule 15 (expression -> expression MUL expression .)
+    COMMA           reduce using rule 15 (expression -> expression MUL expression .)
+    TO              reduce using rule 15 (expression -> expression MUL expression .)
+    STEP            reduce using rule 15 (expression -> expression MUL expression .)
+
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! MUL             [ shift and go to state 17 ]
+  ! DIV             [ shift and go to state 18 ]
+  ! POWER           [ shift and go to state 19 ]
+
+
+state 32
+
+    (16) expression -> expression DIV expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 16 (expression -> expression DIV expression .)
+    MINUS           reduce using rule 16 (expression -> expression DIV expression .)
+    MUL             reduce using rule 16 (expression -> expression DIV expression .)
+    DIV             reduce using rule 16 (expression -> expression DIV expression .)
+    POWER           reduce using rule 16 (expression -> expression DIV expression .)
+    $end            reduce using rule 16 (expression -> expression DIV expression .)
+    RBRACKET        reduce using rule 16 (expression -> expression DIV expression .)
+    COMMA           reduce using rule 16 (expression -> expression DIV expression .)
+    TO              reduce using rule 16 (expression -> expression DIV expression .)
+    STEP            reduce using rule 16 (expression -> expression DIV expression .)
+
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! MUL             [ shift and go to state 17 ]
+  ! DIV             [ shift and go to state 18 ]
+  ! POWER           [ shift and go to state 19 ]
+
+
+state 33
+
+    (18) expression -> expression POWER expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for POWER resolved as shift
+    $end            reduce using rule 18 (expression -> expression POWER expression .)
+    RBRACKET        reduce using rule 18 (expression -> expression POWER expression .)
+    COMMA           reduce using rule 18 (expression -> expression POWER expression .)
+    TO              reduce using rule 18 (expression -> expression POWER expression .)
+    STEP            reduce using rule 18 (expression -> expression POWER expression .)
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression POWER expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression POWER expression .) ]
+  ! MUL             [ reduce using rule 18 (expression -> expression POWER expression .) ]
+  ! DIV             [ reduce using rule 18 (expression -> expression POWER expression .) ]
+  ! POWER           [ reduce using rule 18 (expression -> expression POWER expression .) ]
+
+
+state 34
+
+    (4) statement -> ORIGIN IS LBRACKET . expression COMMA expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 41
+
+state 35
+
+    (12) expression -> LBRACKET expression RBRACKET .
+
+    PLUS            reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    MINUS           reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    MUL             reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    DIV             reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    POWER           reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    $end            reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    RBRACKET        reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    COMMA           reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    TO              reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+    STEP            reduce using rule 12 (expression -> LBRACKET expression RBRACKET .)
+
+
+state 36
+
+    (5) statement -> SCALE IS LBRACKET . expression COMMA expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 42
+
+state 37
+
+    (6) statement -> ROT IS expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    $end            reduce using rule 6 (statement -> ROT IS expression .)
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 38
+
+    (7) statement -> FOR T FROM . expression TO expression STEP expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 43
+
+state 39
+
+    (8) statement -> DRAW LBRACKET expression . COMMA expression RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    COMMA           shift and go to state 44
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 40
+
+    (19) expression -> FUNC LBRACKET expression . RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    RBRACKET        shift and go to state 45
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 41
+
+    (4) statement -> ORIGIN IS LBRACKET expression . COMMA expression RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    COMMA           shift and go to state 46
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 42
+
+    (5) statement -> SCALE IS LBRACKET expression . COMMA expression RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    COMMA           shift and go to state 47
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 43
+
+    (7) statement -> FOR T FROM expression . TO expression STEP expression
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    TO              shift and go to state 48
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 44
+
+    (8) statement -> DRAW LBRACKET expression COMMA . expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 49
+
+state 45
+
+    (19) expression -> FUNC LBRACKET expression RBRACKET .
+
+    PLUS            reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    MINUS           reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    MUL             reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    DIV             reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    POWER           reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    $end            reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    RBRACKET        reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    COMMA           reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    TO              reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+    STEP            reduce using rule 19 (expression -> FUNC LBRACKET expression RBRACKET .)
+
+
+state 46
+
+    (4) statement -> ORIGIN IS LBRACKET expression COMMA . expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 50
+
+state 47
+
+    (5) statement -> SCALE IS LBRACKET expression COMMA . expression RBRACKET
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 51
+
+state 48
+
+    (7) statement -> FOR T FROM expression TO . expression STEP expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 52
+
+state 49
+
+    (8) statement -> DRAW LBRACKET expression COMMA expression . RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    RBRACKET        shift and go to state 53
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 50
+
+    (4) statement -> ORIGIN IS LBRACKET expression COMMA expression . RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    RBRACKET        shift and go to state 54
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 51
+
+    (5) statement -> SCALE IS LBRACKET expression COMMA expression . RBRACKET
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    RBRACKET        shift and go to state 55
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 52
+
+    (7) statement -> FOR T FROM expression TO expression . STEP expression
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    STEP            shift and go to state 56
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+
+state 53
+
+    (8) statement -> DRAW LBRACKET expression COMMA expression RBRACKET .
+
+    $end            reduce using rule 8 (statement -> DRAW LBRACKET expression COMMA expression RBRACKET .)
+
+
+state 54
+
+    (4) statement -> ORIGIN IS LBRACKET expression COMMA expression RBRACKET .
+
+    $end            reduce using rule 4 (statement -> ORIGIN IS LBRACKET expression COMMA expression RBRACKET .)
+
+
+state 55
+
+    (5) statement -> SCALE IS LBRACKET expression COMMA expression RBRACKET .
+
+    $end            reduce using rule 5 (statement -> SCALE IS LBRACKET expression COMMA expression RBRACKET .)
+
+
+state 56
+
+    (7) statement -> FOR T FROM expression TO expression STEP . expression
+    (9) expression -> . PI
+    (10) expression -> . CONSTNUMBER
+    (11) expression -> . T
+    (12) expression -> . LBRACKET expression RBRACKET
+    (13) expression -> . expression PLUS expression
+    (14) expression -> . expression MINUS expression
+    (15) expression -> . expression MUL expression
+    (16) expression -> . expression DIV expression
+    (17) expression -> . MINUS expression
+    (18) expression -> . expression POWER expression
+    (19) expression -> . FUNC LBRACKET expression RBRACKET
+
+    PI              shift and go to state 11
+    CONSTNUMBER     shift and go to state 12
+    T               shift and go to state 22
+    LBRACKET        shift and go to state 6
+    MINUS           shift and go to state 13
+    FUNC            shift and go to state 14
+
+    expression                     shift and go to state 57
+
+state 57
+
+    (7) statement -> FOR T FROM expression TO expression STEP expression .
+    (13) expression -> expression . PLUS expression
+    (14) expression -> expression . MINUS expression
+    (15) expression -> expression . MUL expression
+    (16) expression -> expression . DIV expression
+    (18) expression -> expression . POWER expression
+
+    $end            reduce using rule 7 (statement -> FOR T FROM expression TO expression STEP expression .)
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    MUL             shift and go to state 17
+    DIV             shift and go to state 18
+    POWER           shift and go to state 19
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PLUS in state 33 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 33 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 33 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 33 resolved as shift
+WARNING: shift/reduce conflict for POWER in state 33 resolved as shift
+WARNING: reduce/reduce conflict in state 2 resolved using rule (statement -> T)
+WARNING: rejected rule (expression -> T) in state 2
