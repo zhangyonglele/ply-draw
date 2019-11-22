@@ -18,7 +18,7 @@ var >
 ```
 ORIGIN IS (0,0) //设置原点位置
 ROT IS PI/4     //设置旋转角度(逆时针)
-FOR T 0 TO 100 STEP 1   //设置画图循环,t从0到100，步长为1
+FOR T FROM 0 TO 100 STEP 1   //设置画图循环,t从0到100，步长为1
 DRAW (0,T)   //画图
 
 ```

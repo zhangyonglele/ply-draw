@@ -4,6 +4,7 @@ from UIdraw import Painter
 from module import Draw
 import turtle as turtle
 import math
+import time
 
 #生成词法分析表
 m = lex.MyLex()
@@ -78,9 +79,9 @@ def p_statement_drawp(t):
     if (names['T'] == draw.val_origin):
         a = 'there is nothin you can find, hello boy'
         painter.to_begin(t[3] * draw.x_scale * math.cos(draw.rot) +
-                        t[3] * draw.y_scale * math.sin(draw.rot) + origin.x_axis_begin
+                        t[5] * draw.y_scale * math.sin(draw.rot) + origin.x_axis_begin
                     ,   t[5] * draw.y_scale * math.cos(draw.rot) - 
-                        t[5] * draw.x_scale * math.sin(draw.rot) + origin.y_axis_begin)
+                        t[3] * draw.x_scale * math.sin(draw.rot) + origin.y_axis_begin)
     else :
         painter.paint_2(t[3] * draw.x_scale * math.cos(draw.rot) +
                         t[5] * draw.y_scale * math.sin(draw.rot) + origin.x_axis_begin
