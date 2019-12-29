@@ -55,6 +55,8 @@ ROT IS expression  //定义旋转角度
 SCALE IS (expression,expression)   //定义X,Y轴的放大倍数
 FOR T FROM expression TO expression STEP express  //循环，定义起始值，结束值，和循环步长
 DRAW (expression,expression)   //绘图函数
+PI  //常量PI
+//支持该方式注解
 ```
 
 ## 程序当前问题
