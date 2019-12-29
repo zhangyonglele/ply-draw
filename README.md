@@ -21,6 +21,13 @@ ROT IS PI/4     //设置旋转角度(逆时针)
 FOR T FROM 0 TO 100 STEP 1   //设置画图循环,t从0到100，步长为1
 DRAW (0,T)   //画图
 
+
+FOR T FROM 0 TO 2*PI STEP PI/50
+DRAW (COS(T),SIN(T)) //画圆形
+
+FOR T FROM -10 TO 10 STEP 1/5
+DRAW (T*T,T)  //画二次函数
+
 ```
 
 ## 词法分析(lexical analysis)
@@ -39,6 +46,15 @@ COS()  //余弦函数
 TAN()  //正切函数
 SIN()  //正弦函数
 QUIT   //退出程序关键字
+```
+
+目前支持的关键字及语法有
+```
+ORIGIN IS (expression,expression)   //定义原点坐标
+ROT IS expression  //定义旋转角度
+SCALE IS (expression,expression)   //定义X,Y轴的放大倍数
+FOR T FROM expression TO expression STEP express  //循环，定义起始值，结束值，和循环步长
+DRAW (expression,expression)   //绘图函数
 ```
 
 ## 程序当前问题
